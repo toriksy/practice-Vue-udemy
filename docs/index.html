@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app1-2">
+      <input type="text" v-on:input="changeTitle" />
+      <p>{{ title }}</p>
+    </div>
+
+    <div id="app2-1">
+      <h1 v-once>{{ title }}</h1>
+      <!-- v-once: render only once, never update data -->
+      <p>{{ showTitle() }} - <a v-bind:href="link">Google</a></p>
+      <hr />
+      <p v-html="finishedLink"></p>
+    </div>
+
+    <div id="exercise">
+      <p>VueJS is pretty cool - {{ myName }}({{ myAge }})</p>
+      <!-- 2) Output your age, multiplied by 3 -->
+      <p>{{ tripleAge() }}</p>
+      <!--
+        3) Call a function to output a random float between 0 and 1 (Math.random())
+      -->
+      <p>{{ randNum() }}</p>
+      <!--
+        4) Search any image on Google and output it here by binding the "src" attribute
+      -->
+      <div><img v-bind:src="imglink" style="width:100px;height:100px" /></div>
+      <!--
+        5) Pre-Populate this input with your name (set the "value" attribute)
+      -->
+      <div>
+        <input type="text" v-bind:value="myName" v-on:input="changeName" />
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/1-2.js"></script>
+    <script src="js/2-17.js"></script>
+  </body>
+</html>
