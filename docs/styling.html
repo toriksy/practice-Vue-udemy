@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="css/2-27.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="cssVue">
+      <div class="demo" :class="randDivClasses"></div>
+
+      <div
+        class="demo"
+        @click="attachRed = !attachRed"
+        :class="divClasses"
+      ></div>
+
+      <div
+        class="demo"
+        @click="attachRed = !attachRed"
+        :class="{red: attachRed}"
+      ></div>
+      <div
+        class="demo"
+        @click="attachGreen = !attachGreen"
+        :class="{green: attachGreen}"
+      ></div>
+      <div class="demo" :class="[color, {red: attachRed}]"></div>
+      <hr />
+      <input type="text" v-model="color" />
+
+      <input type="text" v-model="width" />
+
+      <div class="demo" :style="{backgroundColor: color}"></div>
+      <div class="demo" :style="myStyle"></div>
+      <div class="demo" :style="[myStyle, {height: width + 'px'}]"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/2-27.js"></script>
+  </body>
+</html>

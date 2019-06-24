@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app1-2">
+      <input type="text" v-on:input="changeTitle" />
+      <p>{{ title }}</p>
+    </div>
+
+    <div id="app2-1">
+      <h1 v-once>{{ title }}</h1>
+      <!-- v-once: render only once, never update data -->
+      <p>{{ showTitle() }} - <a v-bind:href="link">Google</a></p>
+      <hr />
+      <p v-html="finishedLink"></p>
+    </div>
+
+    <div id="exercise">
+      <p>VueJS is pretty cool - {{ myName }}({{ myAge }})</p>
+      <!-- 2) Output your age, multiplied by 3 -->
+      <p>{{ tripleAge() }}</p>
+      <!--
+        3) Call a function to output a random float between 0 and 1 (Math.random())
+      -->
+      <p>{{ randNum() }}</p>
+      <!--
+        4) Search any image on Google and output it here by binding the "src" attribute
+      -->
+      <div><img v-bind:src="imglink" style="width:100px;height:100px" /></div>
+      <!--
+        5) Pre-Populate this input with your name (set the "value" attribute)
+      -->
+      <div><input type="text" :value="myName" v-on:input="changeName" /></div>
+    </div>
+    <div id="listening217">
+      <button v-on:click="increase(2, $event)">click this!</button>
+      <p>{{ counter }}</p>
+      <p>{{ counter * 2 > 10 ? "greater than 10" : "smaller than 10" }}</p>
+      <p>Result: {{ result }}</p>
+
+      <p v-on:mousemove="updateCoordinates">
+        Coordinates: {{ x }} / {{ y }} -
+        <span v-on:mousemove.stop="">DEAD SPOT</span>
+      </p>
+      <input type="text" v-on:keyup.enter.space="alertMe" />
+    </div>
+
+    <div id="exercise2">
+      <!-- 1) Show an alert when the Button gets clicked -->
+      <div><button v-on:click="showAlert">Show Alert</button></div>
+      <!--
+        2) Listen to the "keydown" event and store the value in a data property (hint: event.target.value gives you the value)
+      -->
+      <div>
+        <input type="text" v-on:keydown="keyCount" />
+        <p>{{ value }}</p>
+      </div>
+      <!--
+        3) Adjust the example from 2) to only fire if the "key down" is the ENTER key
+      -->
+      <div>
+        <input type="text" v-on:keydown.enter="keyCount" />
+        <p>{{ value }}</p>
+      </div>
+    </div>
+
+    <div id="templates22">
+      <input type="text" v-model="name" />
+      <p>{{ name }}</p>
+      <button @click="counter++">increase</button>
+      <button v-on:click="counter--">decrease</button>
+      <button v-on:click="secondCounter++">Increase Second</button>
+      <p>{{ counter }} | {{ secondCounter }}</p>
+      <p>{{ result() }} | {{ output }}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/1-2.js"></script>
+    <script src="js/2-17.js"></script>
+  </body>
+</html>
