@@ -48,6 +48,9 @@
         <h3>{{ ingredient }}</h3>
         <p>{{ index }}</p>
       </template>
+      <span v-for="n in 10">{{ n }}</span>
+
+      <button @click="ingredients.push('spices')">add new</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
